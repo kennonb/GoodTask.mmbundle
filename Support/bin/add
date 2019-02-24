@@ -1,0 +1,32 @@
+#!/usr/bin/ruby -w
+# encoding: UTF-8
+
+require 'cgi'
+
+subject = ENV['MM_SUBJECT']
+note = ""
+# note = "Email: message://%3c" + ENV['MM_MESSAGE_ID'] + "%3e"
+message_url = "message://%3c" + ENV['MM_MESSAGE_ID'] + "%3e"
+
+range_string = ENV['MM_SELECTED_RANGE']
+selection = ""
+if range_string.nil?
+  selection = $stdin.read
+else
+  canonical = $stdin.read
+  offset1,offset2 = range_string.match(/(\d+):(\d+)/).captures
+  range = Integer(offset1)..Integer(offset2)
+  selection = canonical[range]
+end
+
+if !selection.empty?
+  note = note + "\n\n" +  selection
+end
+
+# GoodTask URL scheme: http://goodtaskapp.com/help13.html
+# goodtask3://add?title=[prompt:Title]&list=[prompt:List Name]&due=[prompt:Due Date]&dueAfter=[prompt-num:Due after]&alarm=[prompt-num:Alarm]&priority=[prompt-num:Priority]&url=[prompt:URL]&notes=[prompt:Notes]
+url = "goodtask3://add?title=" + CGI::escape(subject).gsub('+', '%20') + "&url=" + CGI::escape(message_url).gsub('+', '%20')
+if !note.empty?
+  url += "&notes=" + CGI::escape(note).gsub('+', '%20')
+end
+system("open", url)
