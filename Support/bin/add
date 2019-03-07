@@ -20,7 +20,7 @@ else
 end
 
 if !selection.empty?
-  note = note + "\n\n" +  selection
+  note = note + selection
 end
 
 # GoodTask URL scheme: http://goodtaskapp.com/help13.html
