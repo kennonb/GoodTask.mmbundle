@@ -1,6 +1,6 @@
 # Installation
 
-You can install this bundle in MailMate by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
+Currently you will need to download the ZIP archive, rename it to `GoodTask.mmbundle` and move the bundle file to `~/Library/Application Support/MailMate/Bundles`.
 
 # License
 
