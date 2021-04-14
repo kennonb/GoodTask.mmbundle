@@ -1,6 +1,10 @@
 # Installation
 
-Currently you will need to download the ZIP archive, rename it to `GoodTask.mmbundle` and move the bundle file to `~/Library/Application Support/MailMate/Bundles`.
+Currently you will need to download the ZIP archive, extract it, rename the extracted folder to `GoodTask.mmbundle`, and then move the bundle file to `~/Library/Application Support/MailMate/Bundles`.
+
+# Example
+
+![CleanShot 2021-04-14 at 14 37 29@2x](https://user-images.githubusercontent.com/76159/114761891-179b2780-9d2f-11eb-80fa-6d20145dcf56.png)
 
 # License
 
